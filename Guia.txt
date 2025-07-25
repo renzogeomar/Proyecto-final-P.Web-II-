@@ -1,0 +1,48 @@
+AL CLONAR REPOSITORIO CREAR ENTORNO ENV
+
+clonar repositorio /ahora con gitignore en caso tengas el entorno:
+> Remove-Item -Recurse -Force env
+
+> cd ../Proyecto../clinica/
+> python -m venv env
+> ./env/Scripts/activate
+// python -m pip install --upgrade pip
+> python --versión
+> pip install django
+> pip freeze
+> pip install djangorestframework
+> pip install django-cors-headers
+> pip install djangorestframework-simplejwt
+
+python manage.py runserver 127.0.0.1:8147
+
+HACER QUE TU RAMA TENGA EL MISMO CONTENIDO QUE EL MAIN
+git checkout TuRama
+git reset --hard origin/main
+			|_______ Rama a la que quieras que sea identica
+
+TRABAJA DESDE CUALQUIER MAQUINA
+conectar nueva rama creada con credenciales nuevas del ordenador
+
+Descargar Git
+> winget install --id Git.Git -e --source winget
+// Agrega path en variables de entorno
+   C:\Program Files\Git\bin
+
+Borrar credenciales manualmente desde terminal:
+> cmdkey /list
+> cmdkey /delete:git:https://github.com
+// git remote -v
+> git clone …
+> cd Repositorio
+
+Cambia a tu rama
+Si ya existe en remoto:
+> git checkout -b MiRama origin/MiRama
+
+O si quieres crearla tú y aún no está en GitHub:
+> git checkout -b MiRama
+
+> git push -u origin main ( o TuRama para seguir trabajando con ella)
+iniciar sesion con nombre de usuario y token personal generado
+

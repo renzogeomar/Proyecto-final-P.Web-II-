@@ -1,0 +1,54 @@
+<div class="container mt-4" *ngIf="perfil; else cargandoTpl">
+    <h2 class="text-primary mb-4">Mi Perfil</h2>
+  
+    <dl class="row">
+      <dt class="col-sm-3">Usuario</dt>
+      <dd class="col-sm-9">{{ perfil.username }}</dd>
+  
+      <dt class="col-sm-3">Correo</dt>
+      <dd class="col-sm-9">{{ perfil.email || '—' }}</dd>
+  
+      <dt class="col-sm-3">Teléfono</dt>
+      <dd class="col-sm-9">{{ perfil.telefono || '—' }}</dd>
+  
+      <dt class="col-sm-3">Nombres</dt>
+      <dd class="col-sm-9">{{ perfil.first_name || '—' }}</dd>
+  
+      <dt class="col-sm-3">Apellidos</dt>
+      <dd class="col-sm-9">{{ perfil.last_name || '—' }}</dd>
+    </dl>
+  
+    <hr class="my-4">
+  
+    <h3 class="mb-3">Historial de Citas</h3>
+    <div *ngIf="citas.length === 0" class="alert alert-info">No tienes citas registradas.</div>
+  
+    <div class="table-responsive" *ngIf="citas.length > 0">
+      <table class="table table-striped align-middle">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Médico</th>
+            <th>Especialidad</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of citas">
+            <td>{{ c.fecha }}</td>
+            <td>{{ c.hora }}</td>
+            <td>{{ c.medico }}</td>
+            <td>{{ c.especialidad }}</td>
+            <td>{{ c.estado }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <ng-template #cargandoTpl>
+    <div class="container mt-4">
+      <p>Cargando perfil...</p>
+    </div>
+  </ng-template>

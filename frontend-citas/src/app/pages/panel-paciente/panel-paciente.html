@@ -1,0 +1,34 @@
+<div class="container mt-4">
+    <h2 class="text-primary">Reservar Cita</h2>
+  
+    <!-- Especialidad -->
+    <div class="mb-3">
+      <label class="form-label">Especialidad</label>
+      <select class="form-select" (change)="onEspecialidadChange($event)">
+        <option value="">-- Seleccione --</option>
+        <option *ngFor="let esp of especialidades" [value]="esp.id">{{ esp.nombre }}</option>
+      </select>
+    </div>
+  
+    <!-- Médico -->
+    <div class="mb-3" *ngIf="medicos.length > 0">
+      <label class="form-label">Médico</label>
+      <select class="form-select" (change)="onMedicoChange($event)">
+        <option value="">-- Seleccione --</option>
+        <option *ngFor="let med of medicos" [value]="med.id">{{ med.nombres }}</option>
+      </select>
+    </div>
+  
+    <!-- Horarios -->
+    <div class="mb-3" *ngIf="horarios.length > 0">
+      <label class="form-label">Horario disponible</label>
+      <select class="form-select" [(ngModel)]="horarioSeleccionado">
+        <option value="">-- Seleccione --</option>
+        <option *ngFor="let h of horarios" [value]="h.fecha + ' ' + h.hora">{{ h.fecha }} - {{ h.hora }}</option>
+      </select>
+    </div>
+  
+    <button class="btn btn-success" *ngIf="horarios.length > 0" (click)="reservarCita()">Reservar</button>
+  
+    <p class="mt-3" [class.text-success]="exito" [class.text-danger]="!exito">{{ mensaje }}</p>
+  </div>

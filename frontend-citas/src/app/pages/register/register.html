@@ -1,0 +1,8 @@
+<h2>Registrarse</h2>
+<form (ngSubmit)="registrar()">
+  <input class="form-control mb-2" [(ngModel)]="username" name="username" placeholder="Usuario">
+  <input class="form-control mb-2" [(ngModel)]="email" name="email" placeholder="Correo">
+  <input class="form-control mb-2" [(ngModel)]="password" name="password" placeholder="Contraseña" type="password">
+  <button class="btn btn-primary">Registrarse</button>
+</form>
+<p>{{ mensaje }}</p>
