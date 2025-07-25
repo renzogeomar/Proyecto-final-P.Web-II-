@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 import os
 from datetime import timedelta
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,7 +28,7 @@ SECRET_KEY = 'django-insecure-nx8w6^*1p__n8fj%nxc(q-=xiqrvy$a)m7l00(-j@x0%5c_c$w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['proyecto-final-5fj4.onrender.com']
+ALLOWED_HOSTS = ['proyecto-final-5fj4.onrender.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -89,10 +90,11 @@ WSGI_APPLICATION = 'clinica.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        default="postgres://admin:kDT0zMuLhCwyq1vgQhzcigawUzf7qo4b@dpg-d21hfjfgi27c73du2jd0-a.oregon-postgres.render.com/clinica_lh94",
+        conn_max_age=600,
+        ssl_require=True
+    )
 }
 
 
